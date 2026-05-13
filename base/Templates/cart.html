@@ -1,0 +1,37 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<center>
+    {% if count %}
+    <div class="cart_main">
+        <div class="total">
+            <div class="content">🛒Total Amount: ₹ {{TA}}</div>
+
+        </div>
+        <div class="cart_products">
+            {% for i in cartproducts %}
+            <div class="cart_p">
+                <img src="{{i.pimage.url}}" alt="" class="cart_p_img">
+                <div class="cart_p_info">
+                    <div class="cart_p_dsc">{{i.pname}}</div>
+                    <div class="cart_price">₹ {{i.price}}</div>
+                    <div class="inc_dec">
+                        <a href="{% url 'decrement' i.id %}">▼</a>{{i.quantity}}<a href="{% url 'increment' i.id %}">▲</a>
+                    </div>
+                    <div class="remove">
+                        <a href="{% url 'remove' i.id %}">
+                            <button>Remove</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    <h1 style="color: red;">CART IS EMPTY..........</h1>
+
+    {% endif %}
+
+</center>
+{% endblock %}

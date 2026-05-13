@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+
+    {% block content %}
+    <center>
+        <div class="container">
+            <h1>Your Profile</h1>
+            <div class="info">
+                <div class="left">User ID</div>
+                <div class="right">{{request.user}}</div>
+            </div>
+            <div class="info">
+                <div class="left">Verified Status</div>
+                <div class="right">{{request.user.is_authenticated}}</div>
+            </div>
+            <div class="info">
+                <div class="left">First Name</div>
+                <div class="right">{{request.user.first_name}}</div>
+            </div>
+            <div class="info">
+                <div class="left">Last Name</div>
+                <div class="right">{{request.user.last_name}}</div>
+            </div>
+            <div class="info">
+                <div class="left">Email Address</div>
+                <div class="right">{{request.user.email}}</div>
+            </div>
+            <div class="info">
+                <div class="left">Username</div>
+                <div class="right">{{request.user.username}}</div>
+            </div>
+            <a href="{% url 'reset_pass' %}" class="r_p">Reset_Password</a>
+        </div>
+        
+    </center>
+    {% endblock %}

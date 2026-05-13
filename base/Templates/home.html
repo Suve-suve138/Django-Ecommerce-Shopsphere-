@@ -1,0 +1,49 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<center>
+<div class="main">
+    <div class="category">
+        <a href="{% url 'home' %}" class="cat">
+            <button>AllProducts</button>
+        </a>
+        {% for i in category %}
+            <form action="" class="cat">
+                <input type="submit" name="category" value="{{i}}">
+            </form>
+    
+        {% endfor %}
+    </div>
+
+    
+    
+
+    <div class="products">
+        {% if msg %}
+        <h1 style="color: red;">No Items Found.......</h1>
+        {% else %}
+        {% for i in all_products%}
+        <div class="p">
+            
+                <img src="{{i.pimage.url}}" alt="" class="p_img">
+            <div class="p_info">
+                <div class="p_dsc">{{i.pname}}<span>|</span>{{i.pdesc}}</div>
+                <div class="price">₹{{i.price}}</div>
+                {% if offer %}
+                    <h5>50% off</h5>
+                {% elif trending %}
+                    <h5>trending now</h5>
+                {% endif %}
+                <div class="cart">
+                    <a href="{% url 'addtocart' i.id %}">
+                        <button>AddtoCart</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endif %}
+</div>
+</center>
+{% endblock %}

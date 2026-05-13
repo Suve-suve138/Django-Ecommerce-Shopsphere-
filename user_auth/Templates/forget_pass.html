@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<center>
+    <div class="fp-container">
+        <div class="brand">Forget Password</div>
+        <br>
+        {% if error %}
+        <h3 style="color: red;">User not found....</h3> <br>
+        {% endif %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                <input type="text" name="uname" placeholder="Username">
+            </div>
+
+            <button class="fp-btn" type="submit">CHECK</button>
+
+        </form>
+    </div>
+</center>
+
+{% endblock %}

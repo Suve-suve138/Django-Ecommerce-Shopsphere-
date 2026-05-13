@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<center>
+    <div class="np-container">
+        <div class="brand">New Password</div>
+        <br>
+        {% if error %}
+
+        <h3 style="color: red;">New password should not be same as oldpassword</h3>
+        <br>
+        {% endif %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                <input type="password" name="npass" placeholder="Newpassword">
+            </div>
+
+            <button class="np-btn" type="submit">Submit</button>
+
+        </form>
+    </div>
+</center>
+{% endblock %}

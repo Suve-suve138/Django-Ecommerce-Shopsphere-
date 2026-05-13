@@ -1,0 +1,95 @@
+<nav>
+    <div class="logo">
+        Shopsphere
+    </div>
+    <div class="navlinks">
+    {% if user.is_authenticated %}
+
+        {% if search_bar %}
+
+            <form action="" id="searching">
+                <input type="search" name="search" placeholder="search here" id="bar">
+                <button type="submit" id="search_btn">🔍</button>
+            </form>
+
+            <form action="">
+                <input type="submit" value="Trendings" name="trending" id="btn">
+            </form>
+
+            <form action="">
+                <input type="submit" value="Offers" name="offer" id="btn">
+            </form> 
+
+            <a href="{% url 'home' %}">HOME</a>
+
+            {% if no_of_cp %}
+                <a href="{% url 'cart' %}">
+                    CART
+                    <sup>({{no_of_cp}})</sup></a>
+            {% else %}
+                <a href="{% url 'cart' %}">CART</a>
+            {% endif %}
+
+            <a href="{% url 'support' %}">SUPPORT</a>
+            <a href="{% url 'knowus' %}">KNOWUS</a>
+            <a href="{% url 'profile' %}">PROFILE({{request.user.username}})</a>
+            <a href="{% url 'logout_' %}">LOGOUT</a>
+
+        {% else %}
+
+            <a href="{% url 'home' %}">HOME</a>
+            {% if no_of_cp %}
+                <a href="{% url 'cart' %}"> 
+                    CART
+                    <sup>({{no_of_cp}})</sup></a>
+
+            {% else %}
+                <a href="{% url 'cart' %}">CART</a>
+            {% endif %}
+            <a href="{% url 'support' %}">SUPPORT</a>
+            <a href="{% url 'knowus' %}">KNOWUS</a>
+            <a href="{% url 'profile' %}">PROFILE({{request.user.username}})</a>
+            <a href="{% url 'logout_' %}">LOGOUT</a>
+
+        {% endif %}
+
+
+    {% else %}
+
+            {% if search_bar %}
+
+                <form action="" id="searching">
+                    <input type="search" name="search" placeholder="search here" id="bar">
+                    <button type="submit" id="search_btn">🔍</button>
+                </form>
+
+                <form action="">
+                    <input type="submit" value="Trendings" name="trending" id="btn">
+                </form>
+
+                <form action="">
+                    <input type="submit" value="Offer" name="offer" id="btn">
+                </form> 
+
+        
+
+                <a href="{% url 'home' %}">HOME</a>
+                <a href="{% url 'login_' %}">LOGIN</a>
+                
+                <a href="{% url 'support' %}">SUPPORT</a>
+                <a href="{% url 'knowus' %}">KNOWUS</a>
+
+            {% else %}
+
+            <a href="{% url 'home' %}">HOME</a>
+            <a href="{% url 'login_' %}">LOGIN</a>
+            
+            <a href="{% url 'support' %}">SUPPORT</a>
+            <a href="{% url 'knowus' %}">KNOWUS</a>
+
+            {% endif %}
+
+    {% endif %}
+        
+    </div>
+</nav>

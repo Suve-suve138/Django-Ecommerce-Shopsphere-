@@ -1,0 +1,42 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<center>
+    <div class="reset-container">
+        <div class="brand">Reset Password</div>
+        <br>
+        {% if wrong %}
+        <h3 style="color: red;">old password is wrong</h3><br>
+        {% endif %}
+
+        {% if same %}
+        <h3 style="color: red;">new password can't same as the old password</h3><br>
+        {% endif %}
+
+        <form action="" method="POST">
+
+            {% csrf_token %}
+            <div class="input-group">
+                <input type="text" name="uname" value="{{request.user.username}}" readonly>
+            </div>
+            
+            {% if new_pass %}
+            <div class="input-group">
+             <input type="password" name="npass" placeholder="Newpassword">
+            </div>
+           
+            <button class="np-btn" type="submit">Reset</button>
+            {% else %}
+            <div class="input-group">
+                <input type="password" name="opass" placeholder="Oldpassword">
+            </div>
+            
+            <button class="np-btn" type="submit">Verify</button>
+            {% endif %}
+
+        </form>
+    </div>
+</center>
+
+{% endblock %}

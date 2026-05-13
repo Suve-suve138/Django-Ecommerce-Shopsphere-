@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<center>
+    <div class="login-container">
+        <div class="brand">Shopsphere</div>
+        <p>Login to continue exploring</p>
+        <h3 style="color: red;">{{error}}</h3>
+
+        <br>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                <input type="text" placeholder="Username" name="uname" required>
+            </div>
+
+            <div class="input-group">
+                <input type="password" placeholder="Password" name="password" required>
+            </div>
+
+            <button class="login-btn" type="submit">Login</button>
+
+            <div class="extra">
+                <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+            </div>
+            <div class="extra">
+                <p><a href="{% url 'forget_pass' %}">Forgot Password?</a></p>
+            </div>
+        </form>
+    </div>
+</center>
+{% endblock %}

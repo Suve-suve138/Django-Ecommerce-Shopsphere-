@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+
+    {% block content %}
+    <center>
+        <div class="support-container">
+    <h1 class="support-title">Support Center</h1>
+
+    <div class="support-form-box">
+        <h2>Contact Us</h2>
+        <form class="support-form">
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <input type="text" placeholder="Phone Number">
+            <input type="text" placeholder="Order ID">
+
+            <select>
+                <option>Select Issue</option>
+                <option>Payment Issue</option>
+                <option>Order Issue</option>
+                <option>Return/Refund</option>
+                <option>Technical Problem</option>
+            </select>
+
+            <input type="text" placeholder="Subject">
+            <textarea placeholder="Describe your issue..."></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="support-faq">
+        <h2>Frequently Asked Questions</h2>
+
+        <details>
+            <summary>How to track my order?</summary>
+            <p>You can track your order from your account dashboard.</p>
+        </details>
+
+        <details>
+            <summary>How to request a refund?</summary>
+            <p>Go to orders section and click on return/refund.</p>
+        </details>
+    </div>
+
+    <div class="support-contact-info">
+        <h2>Contact Info</h2>
+        <p>Email: sopsphere@gmail.com</p>
+        <p>Phone: +91 9876543210</p>
+        <p>Working Hours: 9 AM - 6 PM</p>
+    </div>
+
+</div>
+    </center>
+    {% endblock %}
